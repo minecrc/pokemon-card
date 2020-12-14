@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
+import SearchCard from './SearchCard'
+
 
 const COLORS = {
   Psychic: "#f8a5c2",
@@ -19,6 +21,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>hello</h1>
+        <SearchCard />
       </div>
     )
   }
