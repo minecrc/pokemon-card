@@ -26,4 +26,4 @@ app.get('/api/cards', (req, res) => {
 
 })
 
-app.listen(3030, () => console.log('app start @ port 3030'))
+app.listen(3030, () => console.log('app start @ port 3030  localhost:3030/api/cards'))
