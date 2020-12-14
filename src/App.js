@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import SearchCard from './SearchCard'
-
+import PokeDek from './PokeDek'
 
 const COLORS = {
   Psychic: "#f8a5c2",
@@ -18,10 +18,12 @@ const COLORS = {
 }
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
         <h1>hello</h1>
+        <PokeDek />
         <SearchCard />
       </div>
     )
