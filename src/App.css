@@ -1,4 +1,18 @@
 .App {
     overflow-y: scroll;
     max-height: 100%;
+    position: relative;
+}
+
+.modal-backdrop {
+    display: none;
+}
+
+.modal-backdrop.in {
+    opacity: 0;
+}
+
+.modal {
+    z-index: inherit !important;
+    position: relative;
 }

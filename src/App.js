@@ -1,33 +1,42 @@
-import React, { Component } from 'react'
+import React, { useState,useEffect } from 'react'
 import './App.css'
-import SearchCard from './SearchCard'
-import PokeDek from './PokeDek'
+import Form from './component/Form'
+import List from './component/List'
+import ListCard from './component/ListCard'
 
-const COLORS = {
-  Psychic: "#f8a5c2",
-  Fighting: "#f0932b",
-  Fairy: "#c44569",
-  Normal: "#f6e58d",
-  Grass: "#badc58",
-  Metal: "#95afc0",
-  Water: "#3dc1d3",
-  Lightning: "#f9ca24",
-  Darkness: "#574b90",
-  Colorless: "#FFF",
-  Fire: "#eb4d4b"
-}
 
-class App extends Component {
+const  App = () =>{
+  
+  const [inputText , setInputText] = useState("");
+  const [ListText ,SetList] = useState([]);
+  const [data,setData] = useState([]);
+  
+  const getData =() => {
+    fetch('http://localhost:3030/api/cards?limit=30',{
+      headers: {
+        'Content-Type' : 'application/json',
+        'Accept' : 'application/json'
+      }
+    }).then(response => {console.log(response); return response.json();}).then(myJson => { setData(myJson); console.log(myJson)}) 
+  }
 
-  render() {
+  useEffect(() => {getData()},[]  )
     return (
-      <div className="App">
+      <div className="App" >
         <h1>hello</h1>
-        <PokeDek />
-        <SearchCard />
+        <Form 
+            ListProp={ListText} 
+            setList={SetList} 
+            inputText={inputText} 
+            setInputText={setInputText}
+        />
+        <List 
+            ListProp={ListText}
+            SetList={SetList} 
+        />
+       <ListCard  cards={setData.cards} />
       </div>
     )
-  }
 }
 
 export default App
